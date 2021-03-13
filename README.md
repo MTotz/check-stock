@@ -1,4 +1,4 @@
-# back-in-stock
+# check-stock
 
 ## Automatically check the stock status of products
 
@@ -22,6 +22,7 @@ Not available for shipping:
 -   On re-order online
 -   Out of stock online
 
+<br><br>
 ## To-do
 
 1. Run with HTML/GUI
