@@ -35,6 +35,6 @@ Not available for shipping:
 ## To-do
 
 1. Make compatible with other online stores
-2. Run with HTML/GUI
-   (a) Add options to view, delete and add products.
+2. Run with HTML/GUI<br>
+   (a) Add options to view, delete and add products
 3. Automatically run this program every set amount of time and send notification
