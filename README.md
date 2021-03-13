@@ -34,6 +34,7 @@ Not available for shipping:
 <br><br>
 ## To-do
 
-1. Run with HTML/GUI
+1. Make compatible with other online stores
+2. Run with HTML/GUI
    (a) Add options to view, delete and add products.
-2. Automatically run this program every set amount of time and send notification
+3. Automatically run this program every set amount of time and send notification
