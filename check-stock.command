@@ -23,7 +23,7 @@ def check_stock(link):
     stock_status = soup.find(
         "div", class_="online-availability__shipping-message").get_text()
 
-    print("{: >70} {: >20} {: <50}".format(
+    print("{: >50} {: >20} {: <40}".format(
         prod_name, "---------------->\t", stock_status))
 
 

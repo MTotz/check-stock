@@ -2,7 +2,7 @@
 
 ## Automatically check the stock status of products
 
-For now this only forks for chapters.indigo.ca because of the HTML of the store website.
+For now this only works for chapters.indigo.ca because of the HTML of the website.
 
 It will check all the links in the file 'links.txt' contained in this folder. To add/edit/remove a link, simply add/edit/remove the corresponding link in the text file.
 
@@ -10,6 +10,15 @@ It will check all the links in the file 'links.txt' contained in this folder. To
 
 1. Open Finder and navigate to the location of this folder (`check-stock`).
 2. Double-click the file `check-stock.command`.
+
+If you get a permission error at step 2, then do the following:
+1. Open Terminal (<kbd>⌘ Command</kbd> + <kbd>Space</kbd>, type in 'Terminal', press <kbd>Enter</kbd>).
+2. Navigate to the `check-stock` folder.
+3. Run the following command:
+   ```shell
+   chmod 111 check-stock.command
+   ```
+Double-clicking `check-stock.command` should no longer give the error.
 
 ### Statuses
 
