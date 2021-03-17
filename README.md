@@ -9,16 +9,17 @@ It will check all the links in the file 'links.txt' contained in this folder. To
 ### To run on Mac:
 
 1. Open Finder and navigate to the location of this folder (`check-stock`).
-2. Double-click the file `check-stock.command`.
+2. Double-click the file `check_stock.command`.
 
 If you get a permission error at step 2, then do the following:
+
 1. Open Terminal (<kbd>⌘ Command</kbd> + <kbd>Space</kbd>, type in 'Terminal', press <kbd>Enter</kbd>).
-2. Navigate to the `check-stock` folder.
+2. Navigate to the `check_stock` folder.
 3. Run the following command:
-   ```shell
-   chmod 111 check-stock.command
-   ```
-Double-clicking `check-stock.command` should no longer give the error.
+    ```shell
+    chmod 111 check-stock.command
+    ```
+    Double-clicking `check_stock.command` should no longer give the error.
 
 ### Statuses
 
@@ -32,10 +33,11 @@ Not available for shipping:
 -   Out of stock online
 
 <br><br>
+
 ## To-do
 
 1. Make compatible with other online stores
 2. Open up pages of products that are available
 3. Run with HTML/GUI<br>
    (a) Add options to view, delete and add products
-3. Automatically run this program every set amount of time and send notification
+4. Automatically run this program every set amount of time and send notification
