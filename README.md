@@ -2,7 +2,7 @@
 
 ## Automatically check the stock status of products
 
-For now this only works for chapters.indigo.ca because of the HTML of the website.
+For now this only works for <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a> because of the HTML of the website.
 
 It will check all the links in the file 'links.txt' contained in this folder. To add/edit/remove a link, simply add/edit/remove the corresponding link in the text file.
 
@@ -35,6 +35,7 @@ Not available for shipping:
 ## To-do
 
 1. Make compatible with other online stores
-2. Run with HTML/GUI
-   (a) Add options to view, delete and add products.
+2. Open up pages of products that are available
+3. Run with HTML/GUI<br>
+   (a) Add options to view, delete and add products
 3. Automatically run this program every set amount of time and send notification
