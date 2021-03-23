@@ -1,21 +1,43 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h5 class="mb-4">Stock will be checked for the following products</h5>
+<div class="">
+    <form action="#" method="post">
+        <h5 class="mb-4">Add a product</h5>
+
+        <p>URL:</p>
+        <input type="text" name="add_url" class="mb-3" />
+
+        <p>Create nickname (optional):</p>
+        <input type="text" name="add_nickname" />
+
+        <br>
+        <input type="submit" name="action" value="Add" class="btn btn-primary my-3" />
+    </form>
+</div>
+
+<h5 class="my-4">Stock will be checked for the following products</h5>
 
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th class="w-50" scope="col">Product Name</th>
+            <th class="w-30" scope="col">Product Name</th>
             <th class="w-50" cope="col">Product Link</th>
+            <th class="w-20" cope="col"></th>
         </tr>
     </thead>
 
     <tbody>
-        {% for i in range(length) %}
+        {% for item in values %}
         <tr>
-            <td>{{name[i]}}</td>
-            <td><a href="{{links[i]}}">{{links[i]}}</a></td>
+            <td>{{item.product_name}}</td>
+            <td><a href="{{item.url}}">{{item.url}}</a></td>
+            <td class="">
+                <form action="" method="post">
+                    <input type="submit" name="action" action="{{delete(item.url)}}" value="Delete"
+                        class="btn btn-danger" />
+                </form>
+            </td>
         </tr>
         {%endfor%}
     </tbody>

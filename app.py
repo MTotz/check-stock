@@ -1,46 +1,52 @@
-from flask import Flask, render_template, url_for, redirect, request
-from check_stock import check_stock, get_links
+from flask import Flask, render_template, url_for, redirect, request, session, flash
+from flask_sqlalchemy import SQLAlchemy
+
+from check_stock import check_stock, get_links, Product, validate_url
+
 
 app = Flask(__name__)  # reference this file
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///products.sqlite3"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+
+class Products(db.Model):
+    url = db.Column("url", db.String, primary_key=True)
+    product_name = db.Column("product_name", db.String)
+    product_nickname = db.Column("product_nickname", db.String)
+
+    def __init__(self, product):
+        self.url = product.get_url()
+        self.product_name = product.get_product_name()
+        self.product_nickname = product.get_product_nickname()
+
+    def delete(self, url):
+        self.query.filter_by(url=url).delete()
 
 
 @app.route("/")
 def index():
-    name = []
-    status = []
-
-    links = get_links()
-    for l in links:
-        product_name, stock_status = check_stock(l)
-        name.append(product_name)
-        status.append(stock_status)
-    return render_template("index.html", length=len(links), name=name, status=status, links=links)
+    return render_template("index.html", values=Products.query.all(), func=check_stock)
 
 
-@app.route("/products_list")
+@app.route("/products_list", methods=["POST", "GET"])
 def products():
-    name = []
-
-    links = get_links()
-    for l in links:
-        product_name, stock_status = check_stock(l)
-        name.append(product_name)
-    return render_template("products_list.html", length=len(links), name=name, links=links)
-
-
-@app.route("/login", methods=["POST", "GET"])
-def login():
     if request.method == "POST":
-        user = request.form["nm"]
-        return redirect(url_for("user", usr=user))
-    else:
-        return render_template("login.html")
+        if request.form.action == "Add":
+            url = request.form["add_url"]
+            nickname = request.form["add_nickname"]
+            if validate_url(url):
+                if not Products.query.filter_by(url=url).first():
+                    product = Product(url, nickname=nickname)
+                    db.session.add(Products(product))
+                    db.session.commit()
+        else:
+            flash("URL not valid.")
 
-
-@ app.route("/<usr>")
-def user(usr):
-    return f"<h1>{usr}</h1>"
+    return render_template("products_list.html", values=Products.query.all())
 
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(debug=True)
