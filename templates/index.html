@@ -1,8 +1,10 @@
 {% extends 'layout.html' %}
 
-{% block body %}
-<div class="jumbotron text-center">
-    <h1>Welcome To FlaskApp</h1>
-    <p class="lead">blah blah blah</p>
-</div>
-{% endblock %}
+{% block content %}
+
+{% for i in range(length) %}
+<a href="{{links[i]}}">{{name[i]}}</a>
+<p>{{status[i]}}</p>
+<br>
+{% endfor %}
+{% endblock content %}

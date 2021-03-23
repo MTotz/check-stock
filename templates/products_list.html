@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h5 class="mb-4">Stock will be checked for the following products</h5>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="w-50" scope="col">Product Name</th>
+            <th class="w-50" cope="col">Product Link</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in range(length) %}
+        <tr>
+            <td>{{name[i]}}</td>
+            <td><a href="{{links[i]}}">{{links[i]}}</a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock content %}

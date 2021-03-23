@@ -36,8 +36,9 @@ Not available for shipping:
 
 ## To-do
 
-1. Make compatible with other online stores
-2. Open up pages of products that are available
-3. Run with HTML/GUI<br>
-   (a) Add options to view, delete and add products
-4. Automatically run this program every set amount of time and send notification
+1. Use SQL to store website links
+2. Add options to delete and add products
+3. Add option to change "nickname" of product
+4. Make compatible with other online stores
+5. Open up pages of products that are available
+6. Automatically run this program every set amount of time and send notification
