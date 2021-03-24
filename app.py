@@ -5,6 +5,7 @@ from check_stock import check_stock, get_links, Product, validate_url
 
 
 app = Flask(__name__)  # reference this file
+app.secret_key = "\xdb\xf5xn-\xaa\xf4\xdeHw\xacc\xb9\xc8\xcdA\xfe\xcfxT\xe4\xf3\xe4\x89"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///products.sqlite3"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -33,16 +34,19 @@ def index():
 @app.route("/products_list", methods=["POST", "GET"])
 def products():
     if request.method == "POST":
-        if request.form.action == "Add":
-            url = request.form["add_url"]
-            nickname = request.form["add_nickname"]
-            if validate_url(url):
-                if not Products.query.filter_by(url=url).first():
-                    product = Product(url, nickname=nickname)
-                    db.session.add(Products(product))
-                    db.session.commit()
+        url = request.form["add_url"]
+        nickname = request.form["add_nickname"]
+        if validate_url(url):
+            if not Products.query.filter_by(url=url).first():
+                product = Product(url, nickname=nickname)
+                db.session.add(Products(product))
+                db.session.commit()
         else:
             flash("URL not valid.")
+
+        items_to_delete = request.POST.getlist('delete_items')
+        # Delete those items all in one go
+        Products.objects.filter(pk__in=items_to_delete).delete()
 
     return render_template("products_list.html", values=Products.query.all())
 
