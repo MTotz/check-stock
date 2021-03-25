@@ -1,5 +1,7 @@
 # check-stock
 
+<img src="sample.gif" style="width:80%"/>
+
 ## Automatically check the stock status of products
 
 For now, this only works for <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a>.
@@ -10,7 +12,7 @@ NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` ins
 
 1. Open Finder and navigate to the location of this folder (`check-stock`).
 2. Double-click the file `app.command`. This will launch your terminal.<br>
-   - If this gives you an "unidentified developer" error, right-click the file, choose Open > Open.
+    - If this gives you an "unidentified developer" error, right-click the file, choose Open > Open.
 3. Displayed in your terminal will be a line similar to the following:
     ```shell
     * Running on http://111.0.0.1:1000/ (Press CTRL+C to quit)
@@ -26,7 +28,7 @@ If you get a permission error at step 2, do the following then continue above wi
     ```shell
     chmod 111 app.command
     ```
-    
+
 ### Statuses
 
 Available for shipping:
