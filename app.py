@@ -30,7 +30,6 @@ def index():
 @app.route("/products_list", methods=["POST", "GET"])
 def products():
     if request.method == "POST":
-        print(request.form)
         if "add_url" in request.form:
             url = request.form["add_url"]
             if validate_url(url):
