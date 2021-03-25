@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
+import webbrowser
 
 from check_stock import check_stock, get_links, Product, validate_url
 
@@ -49,5 +52,6 @@ def products():
 
 
 if __name__ == "__main__":
+    webbrowser.open("http://127.0.0.1:5000/")
     db.create_all()
     app.run(debug=True)

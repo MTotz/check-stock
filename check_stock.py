@@ -65,7 +65,13 @@ def check_stock(link):
     # second term was added to avoid warning, as instructed by module terminal output
     soup = BeautifulSoup(text, features="lxml")
     stock_status = soup.find(
-        "div", class_="online-availability__shipping-message").get_text()
+        "span", class_="online-availability__availability-text")
+
+    if stock_status:
+        stock_status = stock_status.get_text()
+    else:
+        stock_status = soup.find(
+            "div", class_="online-availability__shipping-message").get_text()
 
     return stock_status
 
