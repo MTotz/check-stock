@@ -26,8 +26,7 @@ If you get a permission error at step 2, do the following then continue above wi
     ```shell
     chmod 111 app.command
     ```
-Double-clicking `app.command` should no longer give the error.
-
+    
 ### Statuses
 
 Available for shipping:
