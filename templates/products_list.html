@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="">
+    <form action="#" name="form_add" method="post">
+        <h5 class="mb-4">Add a product</h5>
+
+        <p>URL:</p>
+        <input type="text" name="add_url" />
+
+        <br>
+        <input type="submit" name="btn_add" value="Add" class="btn btn-primary my-3" />
+    </form>
+</div>
+
+<h5 class="my-4">Stock will be checked for the following products</h5>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th cope="col">Product Link</th>
+            <th cope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in values %}
+        <tr>
+            <td>{{item.product_name}}</td>
+            <td><a href="{{item.url}}">{{item.url}}</a></td>
+            <td>
+                <form action="#" name="form_delete" method="post">
+                    <button type="submit" name="btn_delete" value="{{item.url}}" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock content %}
