@@ -2,7 +2,7 @@
 
 ## Automatically check the stock status of products
 
-For now this only works for <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a> because of the HTML of the website.
+For now this only works for <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a>.
 
 NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` installed on your machine to be able to run this program.
 
@@ -20,7 +20,7 @@ NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` ins
 
 If you get a permission error at step 2, then do the following:
 
-1. Open Terminal (<kbd>⌘ command</kbd> + <kbd>space</kbd>, type in 'Terminal', press <kbd>Enter</kbd>).
+1. Open Terminal (<kbd>⌘ command</kbd> + <kbd>space</kbd>, type in 'Terminal', press <kbd>enter</kbd>).
 2. Navigate to the `check_stock` folder.
 3. Run the following command:
     ```shell
