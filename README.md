@@ -8,6 +8,13 @@ For now, this only works for <a href="https://www.chapters.indigo.ca/en-ca/">cha
 
 NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` installed on your machine to be able to run this program.
 
+### To run:
+1. Open the terminal and navigate to the `check-stock` folder.
+2. Run the following line: 
+    ```shell
+    python3 app.py
+    ```
+
 ### To run on Mac, without terminal (mostly):
 
 1. Open Finder and navigate to the location of this folder (`check-stock`).
