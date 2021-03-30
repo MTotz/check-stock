@@ -1,8 +1,9 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from sqlalchemy.sql import text
 
-from check_stock import check_stock, get_links, Product, validate_url
+from check_stock import check_stock, Product, validate_url
 
 
 app = Flask(__name__)  # reference this file
@@ -11,15 +12,18 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///products.sqlite3"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 class Products(db.Model):
     url = db.Column("url", db.String, primary_key=True)
     product_name = db.Column("product_name", db.String)
+    site_name = db.Column("site_name", db.String)
 
     def __init__(self, product):
         self.url = product.get_url()
         self.product_name = product.get_product_name()
+        self.site_name = product.get_site_name()
 
 
 @app.route("/")
