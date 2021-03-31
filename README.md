@@ -40,22 +40,11 @@ If you get a permission error at step 2, do the following then continue above wi
     chmod 111 app.command
     ```
 
-### Statuses
-
-Available for shipping:
-
--   Free shipping on orders over $35
-
-Not available for shipping:
-
--   On re-order online
--   Out of stock online
-
 <br><br>
 
 ## To-do
 
-1. Find out what's happening with Lego set 21318 stock status discrepancy between app and website
+1. Create filter to only view products from certain stores
 2. `check_stock.command` file opens two application tabs. Not sure why.
 3. Add option to change "nickname" of product
 4. Make compatible with other online stores

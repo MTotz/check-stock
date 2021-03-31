@@ -1,5 +1,9 @@
 {% extends 'layout.html' %}
 
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='index.css') }}">
+{% endblock link %}
+
 {% block title %}
 <h2 class="text-center mb-5">Checking Stock...</h2>
 {% endblock title %}
@@ -11,7 +15,7 @@
     <h4>You have no products to check for. Add one from the "Products" page to get started.</h4>
 </div>
 {% else %}
-<table class="table">
+<table class="table table-bordered bg-white">
     <thead class="thead-dark">
         <tr>
             <th scope="col">Product Name</th>
@@ -24,7 +28,7 @@
         {% for item in values %}
         <tr>
             <td><a href="{{item.url}}" target="_blank">{{item.product_name}}</a></td>
-            <td>{{func(item.url, item.site_name)}}</td>
+            <td>{{check_stock(item.url, item.site_name)}}</td>
             <td>{{item.site_name}}</td>
         </tr>
         {%endfor%}

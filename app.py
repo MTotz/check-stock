@@ -28,7 +28,7 @@ class Products(db.Model):
 
 @app.route("/")
 def index():
-    return render_template("index.html", values=Products.query.all(), func=check_stock)
+    return render_template("index.html", values=Products.query.all(), check_stock=check_stock)
 
 
 @app.route("/products_list", methods=["POST", "GET"])
