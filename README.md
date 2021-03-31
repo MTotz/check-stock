@@ -4,13 +4,17 @@
 
 ## Automatically check the stock status of products
 
-For now, this only works for <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a>.
+### Supported websites:
+
+-   <a href="https://www.chapters.indigo.ca/en-ca/">chapters.indigo.ca</a>
+-   <a href="https://www.lego.com/en-ca/">lego.com</a>
 
 NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` installed on your machine to be able to run this program.
 
 ### To run:
+
 1. Open the terminal and navigate to the `check-stock` folder.
-2. Run the following line: 
+2. Run the following line:
     ```shell
     python3 app.py
     ```
@@ -51,6 +55,8 @@ Not available for shipping:
 
 ## To-do
 
-1. Add option to change "nickname" of product
-2. Make compatible with other online stores
-3. Automatically run this program every set amount of time and send notification
+1. Find out what's happening with Lego set 21318 stock status discrepancy between app and website
+2. `check_stock.command` file opens two application tabs. Not sure why.
+3. Add option to change "nickname" of product
+4. Make compatible with other online stores
+5. Automatically run this program every set amount of time and send notification
