@@ -46,7 +46,8 @@ If you get a permission error at step 2, do the following then continue above wi
 
 ## To-do
 
-1. Create filter to only view products from certain stores (only useful if I add more stores)
-2. Add option to change "nickname" of product
-3. Make compatible with other online stores
-4. Automatically run this program every set amount of time and send notification
+1. Update sample gif
+2. Create filter to only view products from certain stores (only useful if I add more stores)
+3. Add option to change "nickname" of product
+4. Make compatible with other online stores
+5. Automatically run this program every set amount of time and send notification
