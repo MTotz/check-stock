@@ -17,7 +17,8 @@ class Product:
         self.url = url
         self.product_nickname = nickname
         self.site_name = get_site_name(url)
-        self.product_name = get_product_name(url, self.site_name)
+        self.product_name = get_product_name(
+            url, self.site_name)  # unimplemented right now
 
     def get_url(self):
         return self.url
@@ -73,6 +74,11 @@ def get_product_name(url, site):
 
 
 def check_stock(url, site):
+    """
+    Need to use this function to check stock in index.html because I don't know how to call the instance function find_stock_status
+    from the html file.
+    """
+
     try:
         req = requests.get(url)
     except requests.exceptions.ConnectionError:
@@ -86,6 +92,7 @@ def check_stock(url, site):
         stock_status = soup.find(
             "span", class_="online-availability__availability-text")
 
+        # the html layout of 'in stock' and 'out of stock' are slightly different so we have to look for different tags
         if stock_status:
             stock_status = stock_status.get_text()
         else:
@@ -101,8 +108,12 @@ def check_stock(url, site):
 
 
 def get_site_name(url):
+    """
+    Returns the portion of the website between www. and .com or .ca.
+    """
+
     return re.search(r"www.+\.c(a|om)", url).group(0)
 
 
 if __name__ == "__main__":
-    print(get_site_name("https://www.chapters.indigo.ca/en-ca/toys/lego-star-wars-the-child/673419342131-item.html?ikwid=the+child&ikwsec=Home&ikwidx=17#algoliaQueryId=f81ce3a14f5517e668048b311c0b42a0"))
+    pass

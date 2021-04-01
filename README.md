@@ -10,7 +10,6 @@
 -   <a href="https://www.lego.com/en-ca/">lego.com</a>
 
 As this program was primarily created for my own personal use, I currently have no plans of adding support for any more stores.<br>
-NOTE: You need python3 and all modules used in `app.py` and `check_stock.py` installed on your machine to be able to run this program.
 
 ### To run:
 
@@ -49,5 +48,4 @@ If you get a permission error at step 2, do the following then continue above wi
 1. Update sample gif
 2. Create filter to only view products from certain stores (only useful if I add more stores)
 3. Add option to change "nickname" of product
-4. Make compatible with other online stores
-5. Automatically run this program every set amount of time and send notification
+4. Automatically run this program every set amount of time and send notification

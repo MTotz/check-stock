@@ -13,7 +13,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///products.sqlite3"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+migrate = Migrate(app, db)  # needed to add a column
 
 
 class Products(db.Model):
@@ -38,6 +38,7 @@ def products():
         if "add_url" in request.form:
             url = request.form["add_url"]
             if validate_url(url):
+                # if link is not already in the database then add it
                 if not Products.query.filter_by(url=url).first():
                     product = Product(url)
                     db.session.add(Products(product))
