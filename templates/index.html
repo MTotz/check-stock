@@ -26,9 +26,9 @@
 
     <tbody>
         {% for item in values %}
-        <tr>
-            <td><a href="{{item.url}}" target="_blank">{{item.product_name}}</a></td>
-            <td>{{check_stock(item.url, item.site_name)}}</td>
+        <tr style="background-color: {{website_color_func(item.url)}};">
+            <td><a href=" {{item.url}}" target="_blank">{{item.product_name}}</a></td>
+            <td>{{check_stock_func(item.url, item.site_name)}}</td>
             <td>{{item.site_name}}</td>
         </tr>
         {%endfor%}

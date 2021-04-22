@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy.sql import text
 import webbrowser
 
-from check_stock import check_stock, Product, validate_url
+from check_stock import check_stock, Product, validate_url, website_color
 
 
 app = Flask(__name__)  # reference this file
@@ -14,7 +15,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///products.sqlite3"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+migrate = Migrate(app, db)  # needed to add a column
 
 
 class Products(db.Model):
@@ -30,7 +31,7 @@ class Products(db.Model):
 
 @app.route("/")
 def index():
-    return render_template("index.html", values=Products.query.all(), check_stock=check_stock)
+    return render_template("index.html", values=Products.query.all(), check_stock_func=check_stock, website_color_func=website_color)
 
 
 @app.route("/products_list", methods=["POST", "GET"])
@@ -39,6 +40,7 @@ def products():
         if "add_url" in request.form:
             url = request.form["add_url"]
             if validate_url(url):
+                # if link is not already in the database then add it
                 if not Products.query.filter_by(url=url).first():
                     product = Product(url)
                     db.session.add(Products(product))

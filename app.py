@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from sqlalchemy.sql import text
 import webbrowser
 
-from check_stock import check_stock, Product, validate_url
+from check_stock import check_stock, Product, validate_url, website_color
 
 
 app = Flask(__name__)  # reference this file
@@ -29,7 +29,7 @@ class Products(db.Model):
 
 @app.route("/")
 def index():
-    return render_template("index.html", values=Products.query.all(), check_stock=check_stock)
+    return render_template("index.html", values=Products.query.all(), check_stock_func=check_stock, website_color_func=website_color)
 
 
 @app.route("/products_list", methods=["POST", "GET"])

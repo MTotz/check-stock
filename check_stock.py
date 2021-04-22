@@ -115,5 +115,14 @@ def get_site_name(url):
     return re.search(r"www.+\.c(a|om)", url).group(0)
 
 
+def website_color(url):
+    if "chapters" in url:
+        return "#C8CEF6"
+    elif "lego" in url:
+        return "#FFFFA5"
+    else:
+        return "white"
+
+
 if __name__ == "__main__":
     pass
