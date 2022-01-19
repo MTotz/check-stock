@@ -19,8 +19,8 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">Product Name</th>
-            <th cope="col">Stock Status</th>
-            <th cope="col">Site</th>
+            <th scope="col">Stock Status</th>
+            <th scope="col">Site</th>
         </tr>
     </thead>
 
@@ -28,7 +28,7 @@
         {% for item in values %}
         <tr>
             <td><a href="{{item.url}}" target="_blank">{{item.product_name}}</a></td>
-            <td>{{check_stock(item.url, item.site_name)}}</td>
+            <td>{{check_stock(item)}}</td>
             <td>{{item.site_name}}</td>
         </tr>
         {%endfor%}

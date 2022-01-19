@@ -8,8 +8,16 @@
 <div class="">
     <form action="#" name="form_add" method="post" autocomplete="off">
         <h5 class="mb-4">Add a product</h5>
-
-        <p>URL:</p>
+        <p>Supported websites:</p>
+        <ul>
+            <li>
+                <a href="https://www.chapters.indigo.ca">www.chapters.indigo.ca</a>
+            </li>
+            <li>
+                <a href="https://www.lego.ca">www.lego.ca</a>
+            </li>
+        </ul>
+        <span>URL:</span>
         <input type="text" name="add_url" class="add-url-input" />
 
         <br>
@@ -23,7 +31,7 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">Product Name</th>
-            <th cope="col">Product Link</th>
+            <th cope="col">Product URL</th>
             <th cope="col"></th>
         </tr>
     </thead>
@@ -33,7 +41,7 @@
         <tr>
             <td>{{item.product_name}}</td>
             <td><a href="{{item.url}}" target="_blank">{{item.url}}</a></td>
-            <td>
+            <td class="align-middle">
                 <form action="#" name="form_delete" method="post">
                     <button type="submit" name="btn_delete" value="{{item.url}}" class="btn btn-danger">Delete</button>
                 </form>

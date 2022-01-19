@@ -16,7 +16,7 @@ class Product:
 
         self.url = url
         self.product_nickname = nickname
-        self.site_name = get_site_name(url)
+        self.site_name = get_site_name(url) # indigo or lego
         self.product_name = get_product_name(
             url, self.site_name)  # unimplemented right now
 
@@ -73,14 +73,14 @@ def get_product_name(url, site):
     return product_name
 
 
-def check_stock(url, site):
+def check_stock(product):
     """
     Need to use this function to check stock in index.html because I don't know how to call the instance function find_stock_status
     from the html file.
     """
 
     try:
-        req = requests.get(url)
+        req = requests.get(product.url)
     except requests.exceptions.ConnectionError:
         return "Page not found"
 
@@ -88,7 +88,7 @@ def check_stock(url, site):
     # second term was added to avoid warning, as instructed by module terminal output
     soup = BeautifulSoup(text, features="lxml")
 
-    if site == "www.chapters.indigo.ca":
+    if product.site_name == "www.chapters.indigo.ca":
         stock_status = soup.find(
             "span", class_="online-availability__availability-text")
 
@@ -99,7 +99,7 @@ def check_stock(url, site):
             stock_status = soup.find(
                 "div", class_="online-availability__shipping-message").get_text()
 
-    elif site == "www.lego.com":
+    elif product.site_name == "www.lego.com":
         matches = [item for item in soup.find_all(
         ) if "data-test" in item.attrs and item["data-test"] == "product-overview-availability"]
         stock_status = matches[0].get_text()
